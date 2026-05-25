@@ -27,19 +27,19 @@ def print_subheader(title):
 
 
 def print_success(msg):
-    print(f"\n  ✓ {msg}")
+    print(f"\n  [+] {msg}")
 
 
 def print_error(msg):
-    print(f"\n  ✗ {msg}")
+    print(f"\n  [!] {msg}")
 
 
 def print_warning(msg):
-    print(f"\n  ⚠ {msg}")
+    print(f"\n  [!] {msg}")
 
 
 def print_info(msg):
-    print(f"\n  ℹ {msg}")
+    print(f"\n  [i] {msg}")
 
 
 def press_enter():
@@ -214,8 +214,8 @@ def show_task_list(tasks, projects_map):
         return
 
     # Priority color indicator
-    pri_icon = {"Low": "○", "Medium": "◐", "High": "●"}
-    status_icon = {"Not Completed": "□", "In Progress": "◧", "Completed": "■"}
+    pri_icon = {"Low": "L", "Medium": "M", "High": "H"}
+    status_icon = {"Not Completed": " ", "In Progress": "~", "Completed": "*"}
 
     print(
         f"\n  {'ID':<4} {'Tugas':<22} {'Proyek':<15} {'Status':<16} "
@@ -227,7 +227,7 @@ def show_task_list(tasks, projects_map):
         si = status_icon.get(t.status, " ")
         pi = pri_icon.get(t.priority, " ")
         due = t.due_date or "-"
-        gd = "✓" if t.google_drive_url else "-"
+        gd = "Y" if t.google_drive_url else "-"
         print(
             f"  {t.id:<4} {t.name[:22]:<22} {proj_name[:15]:<15} "
             f"{si} {t.status:<13} {pi} {t.priority:<7} {due:<12} {gd}"
@@ -266,7 +266,7 @@ def show_status_change(task):
 
     statuses = ["Not Completed", "In Progress", "Completed"]
     for i, s in enumerate(statuses, 1):
-        marker = " ◄" if s == task.status else ""
+        marker = " <" if s == task.status else ""
         print(f"    [{i}] {s}{marker}")
 
     try:
@@ -322,6 +322,6 @@ def show_deadline_warnings(tasks, projects_map):
     print_warning(f"{len(tasks)} tugas mendekati deadline!\n")
     for t in tasks:
         proj_name = projects_map.get(t.project_id, "???")
-        print(f"  ⏰  [{t.priority}] {t.name}")
+        print(f"  [{t.priority}] {t.name}")
         print(f"      Proyek: {proj_name}  |  Deadline: {t.due_date}  |  Status: {t.status}")
         print()

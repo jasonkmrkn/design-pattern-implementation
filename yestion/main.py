@@ -98,7 +98,7 @@ def main():
             NotificationController.check_deadlines()
         elif choice == "0":
             views.clear_screen()
-            print("\n  Terima kasih telah menggunakan Yestion! 👋\n")
+            print("\n  Terima kasih telah menggunakan Yestion!\n")
             break
 
 

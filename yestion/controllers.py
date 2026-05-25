@@ -297,8 +297,8 @@ class NotificationController:
         if tasks:
             pmap = _get_projects_map()
             print()
-            views.print_warning(f"⏰ {len(tasks)} tugas mendekati deadline!")
+            views.print_warning(f"{len(tasks)} tugas mendekati deadline!")
             for t in tasks:
                 proj = pmap.get(t.project_id, "???")
-                print(f"     • {t.name} ({proj}) — deadline {t.due_date}")
+                print(f"     - {t.name} ({proj}), deadline {t.due_date}")
             print()
