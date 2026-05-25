@@ -1,28 +1,3 @@
-#!/usr/bin/env python3
-"""
-Yestion Task Manager - Main Application
-Implementasi MVC Pattern untuk CLI
-
-Struktur MVC:
-  ┌─────────────────────────────────────────────────────┐
-  │  main.py          → Router / Entry Point            │
-  │  controllers.py   → Controller (logika alur)        │
-  │  views.py         → View (tampilan terminal)        │
-  │  models.py        → Model (data + business logic)   │
-  │  data.json        → Simulasi Database               │
-  └─────────────────────────────────────────────────────┘
-
-Use Case Coverage:
-  UC01  Registrasi           → (disimulasikan sebagai auto-login)
-  UC02  Manajemen Proyek     → ProjectController
-  UC03  Membuat Tugas        → TaskController.create
-  UC04  Memodifikasi Tugas   → TaskController.update
-  UC05  Menghapus Tugas      → TaskController.delete
-  UC06  Mengubah Status      → TaskController.change_status
-  UC07  Pencarian & Filter   → SearchController
-  UC08  Peringatan Deadline  → NotificationController
-"""
-
 import sys
 import os
 
